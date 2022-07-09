@@ -98,13 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
                     edtPhoneNo.setText(phoneNo);
                     break;
-                case R.id.btnClearAll:
+                case R.id.btnSave:
                     if(phoneNo.isEmpty() == false) {
                         Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
                         intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
                         intent.putExtra(ContactsContract.Intents.Insert.PHONE, phoneNo);
                         startActivity(intent);
                     }
+                    break;
                 case R.id.btnCall:
                     if (phoneNo.trim().equals("")) {
                         lblinfo.setText("Please enter a number to call on!");

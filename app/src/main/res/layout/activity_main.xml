@@ -222,7 +222,7 @@
                 android:textColor="#fff"
                 android:layout_margin="1dp"
                 android:textSize="20sp"
-                android:id="@+id/btnClearAll"/>
+                android:id="@+id/btnSave"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
