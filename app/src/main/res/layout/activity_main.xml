@@ -147,13 +147,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="376dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
         android:text="Phone Dialer"
         android:textAlignment="viewStart"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
