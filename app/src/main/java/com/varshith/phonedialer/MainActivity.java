@@ -7,149 +7,132 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+//code by github @shreyuraju
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
-
-    EditText edtPhoneNo;
-    TextView lblinfo;
+    EditText editPhone;
+    TextView textInfo;
+    Button btnDel, btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero, btnStar, btnHash, btnCall, btnSave;
+    String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edtPhoneNo = (EditText) findViewById(R.id.edtPhoneNumber);
-        lblinfo = (TextView) findViewById(R.id.lblinfo);
+        editPhone = findViewById(R.id.phoneNo);
+        textInfo = findViewById(R.id.textInfo);
+        btnOne = findViewById(R.id.btnOne);
+        btnTwo = findViewById(R.id.btnTwo);
+        btnThree = findViewById(R.id.btnThree);
+        btnFour = findViewById(R.id.btnFour);
+        btnFive = findViewById(R.id.btnFive);
+        btnSix = findViewById(R.id.btnSix);
+        btnSeven = findViewById(R.id.btnSeven);
+        btnEight = findViewById(R.id.btnEight);
+        btnNine = findViewById(R.id.btnNine);
+        btnZero = findViewById(R.id.btnZero);
+        btnStar = findViewById(R.id.btnStar);
+        btnHash = findViewById(R.id.btnHash);
+        btnCall = findViewById(R.id.btnCall);
+        btnSave = findViewById(R.id.btnSave);
+        btnDel = findViewById(R.id.btnDel);
+
+        btnCall.setOnClickListener(this);
+        btnSave.setOnClickListener(this);
+        btnOne.setOnClickListener(this);
+        btnTwo.setOnClickListener(this);
+        btnThree.setOnClickListener(this);
+        btnFour.setOnClickListener(this);
+        btnFive.setOnClickListener(this);
+        btnSix.setOnClickListener(this);
+        btnSeven.setOnClickListener(this);
+        btnEight.setOnClickListener(this);
+        btnNine.setOnClickListener(this);
+        btnZero.setOnClickListener(this);
+        btnStar.setOnClickListener(this);
+        btnHash.setOnClickListener(this);
+        btnDel.setOnClickListener(this);
+
+
     }
 
-    public void buttonClickEvent(View v) {
-        String phoneNo = edtPhoneNo.getText().toString();
+    @Override
+    public void onClick(View v) {
+        phone = editPhone.getText().toString().trim();
+        textInfo.setText("");
         try {
-
-            switch (v.getId()) {
-                case R.id.btnAterisk:
-                    lblinfo.setText("");
-                    phoneNo += "*";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnHash:
-                    lblinfo.setText("");
-                    phoneNo += "#";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnZero:
-                    lblinfo.setText("");
-                    phoneNo += "0";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnOne:
-                    lblinfo.setText("");
-                    phoneNo += "1";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnTwo:
-                    lblinfo.setText("");
-                    phoneNo += "2";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnThree:
-                    lblinfo.setText("");
-                    phoneNo += "3";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnFour:
-                    lblinfo.setText("");
-                    phoneNo += "4";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnFive:
-                    lblinfo.setText("");
-                    phoneNo += "5";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnSix:
-                    lblinfo.setText("");
-                    phoneNo += "6";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnSeven:
-                    lblinfo.setText("");
-                    phoneNo += "7";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnEight:
-                    lblinfo.setText("");
-                    phoneNo += "8";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnNine:
-                    lblinfo.setText("");
-                    phoneNo += "9";
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btndel:
-                    lblinfo.setText("");
-                    if (phoneNo != null && phoneNo.length() > 0) {
-                        phoneNo = phoneNo.substring(0, phoneNo.length() - 1);
+            if (v.equals(btnOne)) {
+                phone+="1";
+                editPhone.setText(phone);
+            } else if (v.equals(btnTwo)) {
+                phone+="2";
+                editPhone.setText(phone);
+            } else if (v.equals(btnThree)) {
+                phone+="3";
+                editPhone.setText(phone);
+            } else if (v.equals(btnFour)) {
+                phone+="4";
+                editPhone.setText(phone);
+            } else if (v.equals(btnFive)) {
+                phone+="5";
+                editPhone.setText(phone);
+            } else if (v.equals(btnSix)) {
+                phone+="6";
+                editPhone.setText(phone);
+            } else if (v.equals(btnSeven)) {
+                phone+="7";
+                editPhone.setText(phone);
+            } else if (v.equals(btnEight)) {
+                phone+="8";
+                editPhone.setText(phone);
+            } else if (v.equals(btnNine)) {
+                phone+="9";
+                editPhone.setText(phone);
+            } else if (v.equals(btnZero)) {
+                phone+="0";
+                editPhone.setText(phone);
+            } else if (v.equals(btnStar)) {
+                phone+="*";
+                editPhone.setText(phone);
+            } else if (v.equals(btnHash)) {
+                phone+="#";
+                editPhone.setText(phone);
+            } else if (v.equals(btnCall)) {
+                if(phone.trim().equals("")) {
+                    textInfo.setText("Please enter a Number to call!!!");
+                } else {
+                    if(phone.contains("#")){
+                        phone =  phone.replace("#","%23");
                     }
-
-                    edtPhoneNo.setText(phoneNo);
-                    break;
-                case R.id.btnSave:
-                    if(phoneNo.isEmpty() == false) {
-                        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
-                        intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
-                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, phoneNo);
-                        startActivity(intent);
+                    Uri uri = Uri.parse("tel:"+phone);
+                    Intent i = new Intent(Intent.ACTION_DIAL, uri);
+                    try {
+                        startActivity(i);
+                    } catch (SecurityException e) {
+                        Toast.makeText(this, "ERROR :"+e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                    break;
-                case R.id.btnCall:
-                    if (phoneNo.trim().equals("")) {
-                        lblinfo.setText("Please enter a number to call on!");
-                    } else {
-//                        Boolean isHash = false;
-//                        if (phoneNo.subSequence(phoneNo.length() - 1, phoneNo.length()).equals("#")) {
-//                            phoneNo = phoneNo.substring(0, phoneNo.length() - 1);
-//                            String callInfo = "tel:" + phoneNo + Uri.encode("#");
-//                            Intent callIntent = new Intent(Intent.ACTION_CALL);
-//                            callIntent.setData(Uri.parse(callInfo));
-//                            startActivity(callIntent);
-//                        } else {
-//                            String callInfo = "tel:" + phoneNo;
-//                            Intent callIntent = new Intent(Intent.ACTION_CALL);
-//                            callIntent.setData(Uri.parse(callInfo));
-//                            startActivity(callIntent);
-//                        }
-                        Uri u = Uri.parse("tel:" + phoneNo);
+                }
 
-                        // Create the intent and set the data for the
-                        // intent as the phone number.
-                        Intent i = new Intent(Intent.ACTION_DIAL, u);
-
-                        try
-                        {
-                            // Launch the Phone app's dialer with a phone
-                            // number to dial a call.
-                            startActivity(i);
-                        }
-                        catch (SecurityException s)
-                        {
-                            // show() method display the toast with
-                            // exception message.
-                            Toast.makeText(this, "An error occurred", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-
-                    }
-                    break;
+            } else if (v.equals(btnSave)) {
+                if(!phone.isEmpty()) {
+                    Intent i = new Intent(ContactsContract.Intents.Insert.ACTION);
+                    i.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+                    i.putExtra(ContactsContract.Intents.Insert.PHONE, phone);
+                    startActivity(i);
+                }
+            }  else if(v.equals(btnDel)){
+                if(!phone.isEmpty() && phone.length()>0){
+                    phone = phone.substring(0, phone.length() - 1);
+                    editPhone.setText(phone);
+                }
             }
-
-        } catch (Exception ex) {
-
+        } catch (Exception e) {
+            Toast.makeText(this, "ERROR: "+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
 }
